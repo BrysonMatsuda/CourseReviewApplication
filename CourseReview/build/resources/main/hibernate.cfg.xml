@@ -1,0 +1,37 @@
+<hibernate-configuration>
+    <session-factory>
+        <property name="show_sql">false</property>
+        <property name="format_sql">false</property>
+
+        <!--Set the SQL dialect used (such as SQLite, PostgreSQL, MySQL, etc.)
+         The below is a dialect for SQLite which you would use in ths class-->
+        <property name="dialect">org.hibernate.community.dialect.SQLiteDialect</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:my_db.sqlite3</property>
+
+        <!-- The two commented out lines below would be used when connecting to a user-account restricted database -->
+        <!--
+        <property name="connection.username"></property>
+        <property name="connection.password"></property>
+        -->
+
+        <!--
+        For the next line, this address how to handle if an existing database already exists at the connection URL
+        In general in this class, I recommend using update.
+
+        In practice, this line should never be used in production (that is, the working hosted version of the applicaton),
+        since it has potential to delete existing data. Only in a development environment that is not connected to the "real"
+        database (where current production data is actually stored).
+        -->
+        <property name="hibernate.hbm2ddl.auto" >update</property>
+
+
+        <!-- The list of classes that are Entity objects which we want to connect to the database -->
+        <mapping class="edu.virginia.sde.reviews.User" />
+        <mapping class="edu.virginia.sde.reviews.Review" />
+        <mapping class="edu.virginia.sde.reviews.Course" />
+<!--        <mapping class="edu.virginia.sde.hibernate.Client" />-->
+<!--        <mapping class="edu.virginia.sde.hibernate.Account" />-->
+<!--        <mapping class="edu.virginia.sde.hibernate.Transaction" />-->
+    </session-factory>
+</hibernate-configuration>

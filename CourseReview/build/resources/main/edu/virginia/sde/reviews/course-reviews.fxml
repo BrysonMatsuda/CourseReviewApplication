@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.Cursor?>
+<AnchorPane maxHeight="720.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.virginia.sde.reviews.CourseReviewsController">
+    <children>
+        <Label text="Course Reviews" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Label>
+
+        <Button onMouseClicked="#handleTransition" text="Back" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" >
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+
+        <Label fx:id="courseName" text="REPLACE THIS WITH COURSE NAME" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="55.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+
+        <TableView fx:id="reviewTableView" prefHeight="520" prefWidth="470.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="90.0">
+            <columns>
+                <TableColumn fx:id="ratingColumn" text="Rating" />
+                <TableColumn fx:id="commentColumn" prefWidth="680.0" text="Comment" />
+                <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Date" />
+            </columns>
+            <placeholder>
+                <Label fx:id="noItems" text="No content in table" visible="true" />
+            </placeholder>
+        </TableView>
+
+        <BarChart fx:id = "ratingChart" prefHeight="500.0" prefWidth="325.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="110.0">
+            <xAxis>
+                <CategoryAxis label="Rating" fx:id="xAxis"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Percentage" />
+            </yAxis>
+        </BarChart>
+
+        <Label layoutX="88.0" layoutY="623.0" text="Rating                                                                                                    Comment" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="88.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+
+        <HBox spacing="15.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="20.0">
+            <RadioButton fx:id="button1" text="1" />
+            <RadioButton fx:id="button2" text="2" />
+            <RadioButton fx:id="button3" text="3" />
+            <RadioButton fx:id="button4" text="4" />
+            <RadioButton fx:id="button5" text="5" />
+        </HBox>
+
+        <Label text="Worst" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="22.0">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+
+        <Label text="Best" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="207.5">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+
+        <TextArea fx:id="commentBox" prefHeight="60.0" prefWidth="624.0" promptText="Write a review for the course here..." wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="250.0">
+        </TextArea>
+
+        <Button fx:id="submitButton" onMouseClicked="#handleAddReview" text="Submit" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="280.0">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="resubmitButton" onMouseClicked="#handleResubmitReview" text="Resubmit Review" visible="false" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="280.0">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Label fx:id="alreadyReviewed" layoutX="275.0" layoutY="628.0" text="You Can Only Submit One Review" textFill="#dc2c2c" visible="false" />
+        <Label fx:id="haveNotReviewed" layoutX="275.0" layoutY="628.0" text="You Have No Review to Edit/Delete" textFill="#dc2c2c" visible="false" />
+        <Label fx:id="invalidReview" layoutX="160.0" layoutY="628.0" text="Invalid review: Please select a rating and an optional comment" textFill="#dc2c2c" visible="false" />
+        <Button fx:id="editReview" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseClicked="#handleEditReview" text="Edit Review" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="185">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="deleteReview" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseClicked="#handleDeleteReview" text="Delete Review" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="85">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Label fx:id="averageRatingLabel" layoutX="1184.0" layoutY="70.0" text="5.00">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1003.0" layoutY="70.0" text="Average Rating: ">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+        <Button fx:id="closeButton1" mnemonicParsing="false" text="X" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10"  style="-fx-text-fill: red" onMouseClicked="#handleClose">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+
+    </children>
+</AnchorPane>

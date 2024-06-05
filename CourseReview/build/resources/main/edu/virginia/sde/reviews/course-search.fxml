@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxWidth="1280.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.virginia.sde.reviews.CourseSearchController">
+   <children>
+      <Label layoutX="28.0" layoutY="20.0" prefHeight="41.0" text="Course Search">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="525.0" layoutY="92.0" mnemonicParsing="false" onMouseClicked="#handleCourseSearch" prefHeight="26.0" prefWidth="58.0" text="Search">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="courseNumber" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="85.0" promptText="i.e. 1110" />
+      <TextField fx:id="courseName" layoutX="28.0" layoutY="92.0" prefHeight="26.0" prefWidth="233.0" promptText="i.e. Intro to Programming" />
+      <TextField fx:id="courseMnemonic" layoutX="287.0" layoutY="92.0" prefHeight="26.0" prefWidth="107.0" promptText="i.e. CS" />
+      <Separator layoutX="0.0" layoutY="124.0" prefHeight="11.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Button layoutX="644.0" layoutY="92.0" mnemonicParsing="false" onMouseClicked="#handleTransitionReview" text="Reviews" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="101.0" layoutY="64.0" text="Course Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="307.0" layoutY="64.0" text="Mnemonic">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="429.0" layoutY="64.0" text="Catalog #">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableView" layoutX="28.0" layoutY="130.0" maxWidth="900.0" onMouseClicked="#handleCellClick" prefHeight="565.0" prefWidth="900.0">
+         <columns>
+            <TableColumn fx:id="mnemColumn" maxWidth="130.0" minWidth="0.0" prefWidth="130.0" text="MNEM" />
+            <TableColumn fx:id="catalogNumColumn" maxWidth="130.0" minWidth="0.0" prefWidth="130.0" text="Catalog #" />
+            <TableColumn fx:id="courseNameColumn" maxWidth="460.0" prefWidth="460.0" text="Course Name" />
+            <TableColumn fx:id="averageRatingColumn" maxWidth="180.0" prefWidth="180.0" text="Avg Rating /5" />
+         </columns>
+      </TableView>
+      <Label layoutX="1072.0" layoutY="636.0" onMouseClicked="#handleLabelClickLogout" text="Logout" underline="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+       <Label fx:id="mnemStringError" layoutX="1135.0" layoutY="312.0" prefHeight="101.0" prefWidth="119.0" text="Mnemonic        must be a string of 2 to 4 letters" textFill="RED" visible="false" wrapText="true">
+           <font>
+               <Font size="14.0" />
+           </font></Label>
+       <Label fx:id="nameLengthError" layoutX="1135.0" layoutY="310.0" prefHeight="94.0" prefWidth="131.0" text="Name must be 1 to 50 characters" textFill="RED" visible="false" wrapText="true">
+           <font>
+               <Font size="14.0" />
+           </font></Label>
+       <Label fx:id="numberError" layoutX="1135.0" layoutY="320.0" prefHeight="94.0" prefWidth="131.0" text="Course number must be between 1000 to 9999" textFill="RED" visible="false" wrapText="true">
+           <font>
+               <Font size="14.0" />
+           </font></Label>
+      <Button layoutX="1032.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleAddCourse" text="Add Course">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="1044.0" layoutY="135.0" text="Add New Course">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Separator layoutX="929.0" layoutY="441.0" prefHeight="4.0" prefWidth="352.0" />
+      <TextField fx:id="courseMnemonicAdd" layoutX="1115.0" layoutY="180.0" prefHeight="26.0" prefWidth="119.0" promptText="Mnemonic" />
+      <TextField fx:id="courseNameAdd" layoutX="1115.0" layoutY="280.0" prefHeight="26.0" prefWidth="150.0" promptText="Course Name" />
+      <TextField fx:id="courseNumberAdd" layoutX="1115.0" layoutY="230.0" prefHeight="26.0" prefWidth="119.0" promptText="Catalog #  " />
+      <Label fx:id="courseAlreadyExists" layoutX="1159" layoutY="337.0" text="Course Already Exists" textFill="RED" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="invalidCourse" layoutX="1163.0" layoutY="335.0" text="Invalid Course" textFill="RED" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="courseAddSuccess" layoutX="1163.0" layoutY="335.0" text="Success!" textFill="#179a00" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Button layoutX="1071.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#handleMyReviews" text="My Reviews">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="983.0" layoutY="182.0" text="Course Mnemonic:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="947.0" layoutY="232.0" text="Course Catalog Number:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="1012.0" layoutY="282.0" text="Course Name:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="985.0" layoutY="451.0" text="Click here to see your previous reviews:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="closeButton1" mnemonicParsing="false" onMouseClicked="#handleClose" style="-fx-text-fill: red" text="X" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

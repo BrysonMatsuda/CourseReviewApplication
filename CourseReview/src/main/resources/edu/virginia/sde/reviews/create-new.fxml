@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.Cursor?>
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.virginia.sde.reviews.CreateNewController">
+    <children>
+        <GridPane fx:id="gridPane" alignment="CENTER" layoutX="380.0" layoutY="60.0" prefHeight="400.0" prefWidth="500.0">
+            <rowConstraints>
+                <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="222.0" prefHeight="52.0" prefWidth="600.0" text="Create New Account" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                    <font>
+                        <Font size="45.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" lineSpacing="222.0" prefHeight="52.0" prefWidth="425.0" text="Username:    " textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameField" prefHeight="26.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label alignment="CENTER" lineSpacing="222.0" prefHeight="52.0" prefWidth="425.0" text="Password:    " textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="passwordField" prefHeight="26.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button alignment="TOP_LEFT" mnemonicParsing="false" onMouseClicked="#handleCreateNew" text="Create New Account" GridPane.columnIndex="1" GridPane.rowIndex="3" >
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+
+                <Label fx:id="incorrectCreate" style="-fx-text-fill: red;" text="    The given username already exists." textAlignment="RIGHT" visible="false" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="badPassword" style="-fx-text-fill: red;" text="Your password must be at least 8 characters long. Consider making it longer." textAlignment="LEFT" wrapText="true" GridPane.columnSpan="2" visible = "false" GridPane.rowIndex="4" GridPane.rowSpan="2">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="backToLogin" onMouseClicked="#handleTransition" text="Back to Login" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="5" >
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Label>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="300.0" />
+            </columnConstraints></GridPane>
+        <Button fx:id="closeButton1" mnemonicParsing="false" text="X" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10"  style="-fx-text-fill: red" onMouseClicked="#handleClose"/>
+    </children>
+</AnchorPane>

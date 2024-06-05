@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="720.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.virginia.sde.reviews.LoginController">
+   <children>
+      <GridPane fx:id="gridPane" alignment="CENTER" layoutX="380.0" layoutY="60.0" prefHeight="400.0" prefWidth="500.0">
+         <rowConstraints>
+            <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="600.0" text="Login Page" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" text="Username:    " textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" text="Password:    " textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onMouseClicked="#handleLogin" text="Log In" GridPane.columnIndex="1" GridPane.rowIndex="3" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label prefHeight="35.0" prefWidth="300.0" text="Don't have an account? " GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
+            <font>
+               <Font size="19.0" />
+            </font>
+            </Label>
+            <Label onMouseClicked="#handleLabelClick" prefHeight="17.0" style="-fx-text-fill: blue;" text="Click here to create one." underline="true" GridPane.columnIndex="1" GridPane.rowIndex="4"  GridPane.columnSpan="2" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="incorrectLogin1" style="-fx-text-fill: red;" text="The given username and password does not exist." visible="false" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="incorrectLogin2" style="-fx-text-fill: red;" text="Please create a new account if you have not already." visible="false" GridPane.columnSpan="2" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeButton" mnemonicParsing="false" text="Close" GridPane.rowIndex="7" onMouseClicked="#handleClose">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="450.0" />
+         </columnConstraints>
+      </GridPane>
+      <Button fx:id="closeButton1" mnemonicParsing="false" text="X" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="10"  onMouseClicked="#handleClose" style="-fx-text-fill: red">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
